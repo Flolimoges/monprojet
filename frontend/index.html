@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme Médicale</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Bienvenue sur la plateforme médicale</h1>
+
+    <!-- Formulaire de connexion -->
+    <div id="login">
+        <input type="text" id="username" placeholder="Nom d'utilisateur">
+        <button onclick="login()">Se connecter</button>
+    </div>
+
+    <!-- Tableau de bord (caché au départ) -->
+    <div id="dashboard" style="display:none;">
+        <h2>Bienvenue, <span id="userDisplay"></span> !</h2>
+        <button onclick="afficherPriseRdv()">Prendre un rendez-vous</button>
+    </div>
+
+    <!-- Section prise de rendez-vous -->
+    <div id="rdvSection" style="display:none;">
+        <h2>Prendre un rendez-vous</h2>
+
+        <label for="motifRdv">Motif :</label>
+        <select id="motifRdv">
+            <option value="" disabled selected>Choisissez un motif</option>
+            <option value="consultation">Consultation</option>
+            <option value="suivi">Suivi</option>
+            <option value="vaccination">Vaccination</option>
+        </select>
+
+        <button onclick="afficherDisponibilites()">Voir les disponibilités</button>
+
+        <div id="disponibilites" style="display:none;">
+            <h3>Horaires disponibles</h3>
+            <ul id="listeDisponibilites"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
