@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import GeneratedSlot
+from .models import Availability, Appointment
 
-admin.site.register(GeneratedSlot)
-from django.contrib import admin
-
-# Register your models here.
+admin.site.register(Availability)
+admin.site.register(Appointment)
