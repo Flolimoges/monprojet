@@ -1,38 +1,15 @@
-.App {
-  text-align: center;
+/* ✅ FORCER le décalage sous la barre avec `margin-top` */
+.main-content {
+  margin-top: 60px !important; /* 🔹 On force le déplacement sous la barre */
+  padding: 20px;
+  flex-grow: 1;
+  width: 100%;
+  display: block !important; /* 🔹 S’assurer qu’il n’est pas en `flex` */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ✅ Correction aussi pour le menu patient */
+.dashboard-wrapper {
+  margin-top: 60px !important;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: calc(100vh - 60px);
 }

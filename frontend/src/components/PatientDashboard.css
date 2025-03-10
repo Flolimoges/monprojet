@@ -1,6 +1,7 @@
 /* ✅ Conteneur global qui sépare le menu et le contenu principal */
 .app-container {
   display: flex;
+  flex-direction: column; /* 🔹 On passe en colonne pour que le contenu respecte la hauteur */
   height: 100vh;
   overflow: hidden;
 }
@@ -30,17 +31,16 @@
   text-align: center;
 }
 
-/* ✅ Le contenu principal commence APRES le menu */
+/* ✅ Le contenu principal commence BIEN APRES le menu et SOUS la barre */
 .main-content {
+  padding-top: 60px !important; /* 🔹 Permet de respecter la barre de navigation */
   margin-left: 270px;
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
   width: calc(100% - 270px);
   transition: margin-left 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: block !important; /* 🔹 On empêche le `flex` de casser l'affichage */
 }
 
 /* ✅ Quand le menu est réduit, ajuster encore plus le contenu */
@@ -85,15 +85,15 @@
 
 /* ✅ STYLE SPÉCIFIQUE AUX ICONES DU CONTENU PRINCIPAL */
 .main-content h2 {
-  display: flex; /* 🔹 Permet d'aligner l'icône et le texte */
+  display: flex;
   align-items: center;
   gap: 15px;
-  padding-left: 20px; /* 🔹 Évite que le texte colle au bord */
+  padding-left: 20px;
 }
 
-/* ✅ Les icônes dans le CONTENU PRINCIPAL ne doivent PAS être recouvertes */
+/* ✅ Les icônes dans le CONTENU PRINCIPAL doivent être bien alignées */
 .main-content .icon {
-  min-width: 35px; /* 🔹 Taille minimum pour éviter qu’elles ne disparaissent */
+  min-width: 35px;
   text-align: center;
   display: inline-flex;
   align-items: center;
@@ -168,7 +168,7 @@
     background: #3aafa9;
   }
 
-  /* ✅ RÉPARATION : Icônes non recouvertes en mobile */
+  /* ✅ RÉPARATION : Icônes bien visibles en mobile */
   .main-content .icon {
     min-width: 40px;
   }
