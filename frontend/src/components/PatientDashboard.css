@@ -1,0 +1,80 @@
+/* Container général qui sépare le menu et le contenu principal */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ✅ Le menu (dashboard) reste fixé à gauche */
+.dashboard-container {
+  position: relative;
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  transition: width 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* ✅ Mode réduit du menu */
+.dashboard-container.collapsed {
+  width: 60px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* ✅ Contenu principal qui s'affiche à droite du menu */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ✅ Correction : Bouton "X" bien en haut à gauche */
+.close-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: black;
+}
+
+/* ✅ Bouton ☰ bien placé et fonctionnel */
+.menu-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2b7a78;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ✅ Grille des boutons du menu */
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ✅ Style des boutons du menu */
+.dashboard-card {
+  background: #2b7a78;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.dashboard-card:hover {
+  background: #3aafa9;
+}
