@@ -1,61 +1,53 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainNavigation from "./components/MainNavigation";
-import PatientDashboard from "./components/PatientDashboard";
+import HomePage from "./pages/HomePage";
 import CalendarPage from "./pages/CalendarPage";
 import ServicesPage from "./pages/ServicesPage";
 import SearchPage from "./pages/SearchPage";
-import "./components/MainNavigation.css";
-import "./components/PatientDashboard.css";
+import PatientTabsBar from "./components/PatientTabsBar"; // Barre d'onglets des dossiers patients
+import PatientView from "./components/PatientView"; // Contenu du dossier patient
 
 const App = () => {
+  const [openPatients, setOpenPatients] = useState([]); // Liste des patients ouverts
+  const [activePatient, setActivePatient] = useState(null); // Patient actuellement affiché
+
+  // Ouvre un dossier patient (ajoute un onglet s'il n'existe pas encore)
+  const openPatient = (patient) => {
+    if (!openPatients.some(p => p.id === patient.id)) {
+      setOpenPatients([...openPatients, patient]);
+    }
+    setActivePatient(patient); // Active ce patient
+  };
+
+  // Ferme un onglet patient
+  const closePatient = (patientId) => {
+    const updatedPatients = openPatients.filter(p => p.id !== patientId);
+    setOpenPatients(updatedPatients);
+    if (activePatient?.id === patientId) {
+      setActivePatient(updatedPatients.length > 0 ? updatedPatients[0] : null);
+    }
+  };
+
   return (
     <Router>
-      <div className="app-container">
-        {/* ✅ Afficher `MainNavigation` seulement si on est dans l’espace praticien */}
-        <ConditionalMainNavigation />
+      <MainNavigation setActivePatient={setActivePatient} /> {/* Navigation principale */}
+      <PatientTabsBar openPatients={openPatients} activePatient={activePatient} setActivePatient={setActivePatient} closePatient={closePatient} />
 
-        {/* ✅ Contenu principal */}
-        <div className="main-content">
+      <div className="main-content">
+        {activePatient ? (
+          <PatientView patient={activePatient} />
+        ) : (
           <Routes>
-            {/* 📌 Pages du praticien */}
-            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/home" element={<HomePage openPatient={openPatient} />} />
+            <Route path="/calendar" element={<CalendarPage openPatient={openPatient} />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/search" element={<SearchPage />} />
-
-            {/* 📌 Pages du patient (avec le menu latéral `PatientDashboard`) */}
-            <Route path="/dashboard/*" element={<PatientDashboardWrapper />} />
-
-            {/* 📌 Page par défaut (redirige vers le calendrier) */}
-            <Route path="*" element={<CalendarPage />} />
+            <Route path="*" element={<HomePage openPatient={openPatient} />} />
           </Routes>
-        </div>
+        )}
       </div>
     </Router>
-  );
-};
-
-/* ✅ Fonction qui affiche `MainNavigation` uniquement si on est en dehors de /dashboard */
-const ConditionalMainNavigation = () => {
-  const location = useLocation();
-  return !location.pathname.startsWith("/dashboard") ? <MainNavigation /> : null;
-};
-
-/* ✅ Wrapper pour gérer `PatientDashboard` */
-const PatientDashboardWrapper = () => {
-  return (
-    <div className="dashboard-wrapper">
-      <PatientDashboard />
-      <div className="dashboard-content">
-        <Routes>
-          <Route path="appointments" element={<h2>📅 Prise de rendez-vous</h2>} />
-          <Route path="reminders" element={<h2>⏰ Rappel des rendez-vous</h2>} />
-          <Route path="medical-record" element={<h2>📂 Mon dossier médical</h2>} />
-          <Route path="pre-consultation" element={<h2>🩺 Pré-consultation</h2>} />
-          <Route path="*" element={<h2>🏠 Page d'accueil patient</h2>} />
-        </Routes>
-      </div>
-    </div>
   );
 };
 

@@ -1,0 +1,24 @@
+.patient-tabs-container {
+  display: flex;
+}
+
+.patient-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  background: #f0f4f8;
+  padding: 10px;
+}
+
+.patient-tabs button {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.patient-tabs button.active {
+  background: #e0e5ec;
+  font-weight: bold;
+}

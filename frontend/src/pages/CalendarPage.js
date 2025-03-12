@@ -1,10 +1,14 @@
 import React from "react";
 
-const CalendarPage = () => {
+const CalendarPage = ({ openPatient }) => {
+  const handleOpenPatient = () => {
+    openPatient({ id: Date.now(), name: `Patient ${Math.floor(Math.random() * 100)}` });
+  };
+
   return (
-    <div>
-      <h1>📅 Calendrier des consultations</h1>
-      <p>Affichage du planning des rendez-vous.</p>
+    <div className="calendar-container">
+      <h1>Calendrier</h1>
+      <button className="open-patient-btn" onClick={handleOpenPatient}>📂 Ouvrir un Dossier Patient</button>
     </div>
   );
 };
