@@ -1,59 +1,55 @@
-/* ✅ Barre des onglets patients en ligne, façon Chrome */
 .patient-tabs-bar {
   display: flex;
-  align-items: center;
-  gap: 4px; /* 🔹 Moins d’espace entre les onglets */
-  background: #ffffff;
-  padding: 5px 10px;
-  border-bottom: 2px solid #ddd;
-  overflow-x: auto; /* 🔹 Défilement horizontal si trop d'onglets */
-  white-space: nowrap; /* 🔹 Empêche les retours à la ligne */
+  overflow-x: auto;
+  white-space: nowrap;
+  background: #f0f2f5; /* ✅ Couleur plus neutre */
+  padding: 5px;
+  border-bottom: 2px solid #ccc;
 }
 
-/* ✅ Style des onglets patients */
-.patient-tab {
-  background: #e0e5ec;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  border-radius: 10px 10px 0 0; /* 🔹 Légèrement arrondi en haut */
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
+.patient-tabs-bar .tab {
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease-in-out;
-  flex: 0 1 auto; /* 🔹 Taille automatique selon le texte */
-  min-width: 100px; /* 🔹 Évite que les onglets soient trop petits */
-  max-width: 180px; /* 🔹 Évite des onglets trop longs */
-  overflow: hidden;
-  text-overflow: ellipsis; /* 🔹 Coupe le texte trop long avec "..." */
+  position: relative; /* ✅ Pour positionner la croix */
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px 25px 8px 15px; /* ✅ Espace ajusté */
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: background 0.3s ease; /* ✅ Animation douce */
 }
 
-/* ✅ Onglet actif (ressemble aux onglets sélectionnés de Chrome) */
-.patient-tab.active {
-  background: #f8f9fa;
-  border-bottom: 2px solid #f8f9fa; /* 🔹 Simule l'effet d'un onglet connecté */
+.patient-tabs-bar .tab:hover {
+  background: #e0e7ff; /* ✅ Effet de survol */
 }
 
-/* ✅ Effet de survol */
-.patient-tab:hover {
-  background: #d6dae3;
+.patient-tabs-bar .tab.active {
+  background: #007bff;
+  color: white;
+  border-bottom: 2px solid #0056b3;
 }
 
-/* ✅ Bouton de fermeture minimaliste */
-.close-btn {
+.patient-tabs-bar .tab button {
+  position: absolute; /* ✅ Placé correctement */
+  top: 3px;
+  left: 3px;
   background: none;
   border: none;
-  font-size: 14px;
+  color: #555;
+  font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
-  color: #666;
-  transition: color 0.2s ease;
-  padding: 0 4px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%; /* ✅ Rend le bouton discret */
+  padding: 0;
 }
 
-.close-btn:hover {
-  color: red;
+/* ✅ Réduit l'opacité au survol pour un effet subtil */
+.patient-tabs-bar .tab button:hover {
+  color: black;
+  opacity: 0.7;
 }

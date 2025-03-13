@@ -1,21 +1,28 @@
-import React from "react";
-import "./PatientTabsBar.css";
+import React, { memo } from "react";
+import "./PatientTabsBar.css"; // ✅ Assure que le CSS est bien appliqué
 
 const PatientTabsBar = ({ openPatients, activePatient, setActivePatient, closePatient }) => {
   return (
     <div className="patient-tabs-bar">
-      {openPatients.map(patient => (
-        <button
+      {openPatients.map((patient) => (
+        <div
           key={patient.id}
-          className={`patient-tab ${activePatient?.id === patient.id ? "active" : ""}`}
-          onClick={() => setActivePatient(patient)}
+          className={`tab ${activePatient?.id === patient.id ? "active" : ""}`}
+          onClick={() => setActivePatient(patient)} /* ✅ Assure que l'onglet est cliquable */
         >
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); /* ✅ Empêche la fermeture en cliquant sur l'onglet */
+              closePatient(patient.id);
+            }}
+          >
+            ✖
+          </button>
           {patient.name}
-          <span className="close-btn" onClick={(e) => { e.stopPropagation(); closePatient(patient.id); }}>✖</span>
-        </button>
+        </div>
       ))}
     </div>
   );
 };
 
-export default PatientTabsBar;
+export default memo(PatientTabsBar);

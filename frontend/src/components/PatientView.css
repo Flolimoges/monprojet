@@ -1,66 +1,34 @@
-/* ✅ Container de la barre de navigation */
-.nav-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  background: #ffffff;
-  padding: 10px;
-  border-bottom: 3px solid #ddd;
-  position: relative;
+.patient-tabs-bar {
+  display: flex; /* ✅ Met les onglets en ligne */
+  overflow-x: auto; /* ✅ Ajoute un défilement horizontal si trop d'onglets */
+  white-space: nowrap;
+  background: #f8f9fa;
+  padding: 5px;
+  border-bottom: 2px solid #ddd;
 }
 
-/* ✅ Style des onglets (boutons de navigation) */
-.nav-item {
-  background: #e0e5ec;
-  color: #333;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 12px 12px 0 0; /* Coins arrondis en haut */
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
+.patient-tabs-bar .tab {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  transition: all 0.3s ease;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0; /* ✅ Donne un effet onglet */
 }
 
-/* ✅ Effet survol */
-.nav-item:hover {
-  background: #d1dae5;
+.patient-tabs-bar .tab.active {
+  background: #007bff;
+  color: white;
+  border-bottom: 2px solid #0056b3;
 }
 
-/* ✅ Onglet actif */
-.nav-item.active {
-  background: #f0f4f8;
-  color: #000;
-  border-bottom: 3px solid #f0f4f8; /* Cache la bordure */
-  position: relative;
-}
-
-/* ✅ Effet de continuité entre l'onglet et le contenu */
-.nav-item.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 3px;
-  background: #f0f4f8; /* Même couleur que le contenu */
-}
-
-/* ✅ Icônes */
-.nav-icon {
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-/* ✅ Contenu principal relié aux onglets */
-.main-content {
-  background: #f0f4f8;
-  padding: 30px;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: -3px; /* Ajuste le contact avec l'onglet actif */
+.patient-tabs-bar .tab button {
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
 }

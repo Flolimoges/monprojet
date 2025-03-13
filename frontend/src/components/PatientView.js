@@ -1,26 +1,14 @@
-import React, { useState } from "react";
-import "./PatientView.css";
+import React, { memo } from "react";
 
 const PatientView = ({ patient }) => {
-  const [activeTab, setActiveTab] = useState("summary");
-
   return (
     <div className="patient-view">
-      <div className="patient-tabs">
-        <button className={activeTab === "summary" ? "active" : ""} onClick={() => setActiveTab("summary")}>Résumé</button>
-        <button className={activeTab === "consultations" ? "active" : ""} onClick={() => setActiveTab("consultations")}>Consultations</button>
-        <button className={activeTab === "exams" ? "active" : ""} onClick={() => setActiveTab("exams")}>Examens</button>
-        <button className={activeTab === "hospital" ? "active" : ""} onClick={() => setActiveTab("hospital")}>Hospitalisations</button>
-      </div>
-
-      <div className="patient-content">
-        {activeTab === "summary" && <p>Résumé médical de {patient.name}</p>}
-        {activeTab === "consultations" && <p>Historique des consultations</p>}
-        {activeTab === "exams" && <p>Examens complémentaires</p>}
-        {activeTab === "hospital" && <p>Détails des hospitalisations</p>}
-      </div>
+      <h2>{patient.name}</h2>
+      <p>ID: {patient.id}</p>
+      <p>Dossier médical en cours...</p>
     </div>
   );
 };
 
-export default PatientView;
+// 🛠️ React.memo() empêche le re-rendu inutile du dossier patient si les infos ne changent pas
+export default memo(PatientView);
