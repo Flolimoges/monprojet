@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import AvailabilityViewSet, AppointmentViewSet, GeneratedSlotViewSet
+from .views import AvailabilityViewSet, AppointmentViewSet, GeneratedSlotViewSet, get_patients
 
 router = DefaultRouter()
 router.register(r'availabilities', AvailabilityViewSet)
@@ -14,4 +14,5 @@ def home(request):
 urlpatterns = [
     path('', home, name='core-home'),
     path('api/', include(router.urls)),
+    path('patients/', get_patients, name='patient-list'),
 ]

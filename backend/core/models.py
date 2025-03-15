@@ -5,6 +5,13 @@ from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
+class Patient(models.Model):
+    name = models.CharField(max_length=100)  # Nom du patient
+    birth_date = models.DateField(null=True, blank=True)  # Date de naissance
+    created_at = models.DateTimeField(auto_now_add=True)  # Date de création du patient
+
+    def __str__(self):
+        return self.name
 
 class Availability(models.Model):
     doctor = models.ForeignKey(User, on_delete=models.CASCADE)

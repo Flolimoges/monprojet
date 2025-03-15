@@ -1,0 +1,55 @@
+.patient-tabs-bar {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: #f0f2f5; /* ✅ Couleur plus neutre */
+  padding: 5px;
+  border-bottom: 2px solid #ccc;
+}
+
+.patient-tabs-bar .tab {
+  display: flex;
+  align-items: center;
+  position: relative; /* ✅ Pour positionner la croix */
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px 25px 8px 15px; /* ✅ Espace ajusté */
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: background 0.3s ease; /* ✅ Animation douce */
+}
+
+.patient-tabs-bar .tab:hover {
+  background: #e0e7ff; /* ✅ Effet de survol */
+}
+
+.patient-tabs-bar .tab.active {
+  background: #007bff;
+  color: white;
+  border-bottom: 2px solid #0056b3;
+}
+
+.patient-tabs-bar .tab button {
+  position: absolute; /* ✅ Placé correctement */
+  top: 3px;
+  left: 3px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%; /* ✅ Rend le bouton discret */
+  padding: 0;
+}
+
+/* ✅ Réduit l'opacité au survol pour un effet subtil */
+.patient-tabs-bar .tab button:hover {
+  color: black;
+  opacity: 0.7;
+}

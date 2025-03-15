@@ -1,80 +1,175 @@
-/* Container général qui sépare le menu et le contenu principal */
+/* ✅ Conteneur global qui sépare le menu et le contenu principal */
 .app-container {
   display: flex;
+  flex-direction: column; /* 🔹 On passe en colonne pour que le contenu respecte la hauteur */
   height: 100vh;
+  overflow: hidden;
 }
 
-/* ✅ Le menu (dashboard) reste fixé à gauche */
+/* ✅ Le menu (dashboard) reste bien à gauche */
 .dashboard-container {
-  position: relative;
-  width: 250px;
+  width: 260px;
   background: white;
   padding: 20px;
   border-right: 2px solid #ddd;
   transition: width 0.3s ease-in-out;
   z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* ✅ Mode réduit du menu */
 .dashboard-container.collapsed {
-  width: 60px;
+  width: 70px;
   padding: 10px;
   text-align: center;
 }
 
-/* ✅ Contenu principal qui s'affiche à droite du menu */
+/* ✅ Le contenu principal commence BIEN APRES le menu et SOUS la barre */
 .main-content {
+  padding-top: 60px !important; /* 🔹 Permet de respecter la barre de navigation */
+  margin-left: 270px;
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
+  width: calc(100% - 270px);
+  transition: margin-left 0.3s ease-in-out;
+  display: block !important; /* 🔹 On empêche le `flex` de casser l'affichage */
 }
 
-/* ✅ Correction : Bouton "X" bien en haut à gauche */
-.close-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: black;
+/* ✅ Quand le menu est réduit, ajuster encore plus le contenu */
+.dashboard-container.collapsed + .main-content {
+  margin-left: 80px;
+  width: calc(100% - 80px);
 }
 
-/* ✅ Bouton ☰ bien placé et fonctionnel */
-.menu-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #2b7a78;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* ✅ Grille des boutons du menu */
-.dashboard-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-/* ✅ Style des boutons du menu */
+/* ✅ Correction : Les icônes et le texte sont bien alignés dans le MENU */
 .dashboard-card {
   background: #2b7a78;
   color: white;
-  padding: 10px;
+  padding: 12px 20px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   transition: background 0.3s;
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
 }
 
+/* ✅ Style de l’icône dans le MENU */
+.dashboard-card .icon {
+  min-width: 30px;
+  text-align: center;
+}
+
+/* ✅ Effet hover */
 .dashboard-card:hover {
   background: #3aafa9;
+}
+
+/* ✅ Bouton actif grisé */
+.dashboard-card.active {
+  background: #b0b0b0;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ✅ STYLE SPÉCIFIQUE AUX ICONES DU CONTENU PRINCIPAL */
+.main-content h2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-left: 20px;
+}
+
+/* ✅ Les icônes dans le CONTENU PRINCIPAL doivent être bien alignées */
+.main-content .icon {
+  min-width: 35px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+/* ✅ MEDIA QUERIES : Adaptation mobile */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  /* ✅ Le menu devient un menu haut */
+  .dashboard-container {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 1001;
+    border-bottom: 2px solid #ddd;
+  }
+
+  /* ✅ Ajustement du menu en mode réduit */
+  .dashboard-container.collapsed {
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* ✅ Le menu prend toute la largeur en version mobile */
+  .dashboard-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+  }
+
+  /* ✅ Le contenu s’adapte pour ne pas être caché par le menu */
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  /* ✅ Boutons plus grands pour le tactile */
+  .dashboard-card {
+    font-size: 14px;
+    padding: 12px 15px;
+    justify-content: center;
+  }
+
+  /* ✅ RÉPARATION : Réactiver les boutons actifs en mobile */
+  .dashboard-card.active {
+    background: #b0b0b0 !important;
+    color: black !important;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ✅ RÉPARATION : Effet hover en mobile */
+  .dashboard-card:not(.active):hover {
+    background: #3aafa9;
+  }
+
+  /* ✅ RÉPARATION : Icônes bien visibles en mobile */
+  .main-content .icon {
+    min-width: 40px;
+  }
 }
