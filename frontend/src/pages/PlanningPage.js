@@ -44,6 +44,7 @@ const PlanningPage = () => {
     return range;
   };
 
+  console.log("Créneaux reçus :", generatedSlots);
   const dateRange = generateDateRange();
 
   // 🔹 Filtrer les créneaux pour la période affichée
@@ -54,6 +55,8 @@ const PlanningPage = () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--days-shown", dateRange.length);
   }, [dateRange.length]);
+
+  console.log("Créneaux après filtrage :", filteredSlots);
 
   return (
     <div className="planning-container">
@@ -87,17 +90,30 @@ const PlanningPage = () => {
                     {filteredSlots
                       .filter(slot => slot.date === date.toISOString().split("T")[0] && parseInt(slot.start_time.split(":")[0]) === 8 + i)
                       .map(slot => {
+                        const startHour = parseInt(slot.start_time.split(":")[0]);
                         const startMinute = parseInt(slot.start_time.split(":")[1]);
+                        const endHour = parseInt(slot.end_time.split(":")[0]);
                         const endMinute = parseInt(slot.end_time.split(":")[1]);
-                        const duration = endMinute - startMinute || 1;
+
+                        // ✅ Correction complète du calcul de la durée (heures et minutes)
+                        const duration = Math.max((endHour - startHour) * 60 + (endMinute - startMinute), 1);
+
+                        console.log(
+                          "Créneau affiché :",
+                          slot.start_time,
+                          slot.end_time,
+                          "Hauteur calculée :",
+                          (duration / 60) * 100
+                        );
 
                         return (
                           <div
                             key={slot.id}
                             className={`slot ${slot.is_reserved ? "reserved" : "available"}`}
                             style={{
-                              top: `${(startMinute / 60) * 100}%`,
                               height: `${(duration / 60) * 100}%`,
+                              top: `${(startMinute / 60) * 100}%`, // Position en fonction de l'heure de début
+                              position: "absolute", // Assurer un bon positionnement dans la grille
                             }}
                           >
                             <span className="slot-time">{slot.start_time} - {slot.end_time}</span>

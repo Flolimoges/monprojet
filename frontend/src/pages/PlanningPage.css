@@ -78,7 +78,7 @@
   width: 100%;
   position: absolute;
   left: 0;
-  height: calc((100% / 60) * var(--slot-duration));
+  height: calc((100vh / 24) * (var(--slot-duration) / 60));
   display: flex;
   flex-direction: column;
   justify-content: center;
