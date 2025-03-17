@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c99c394-73b2-4a41-a611-3aef08aff979" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend (2).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend (2).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" afterDir="false" />
     </list>
