@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c99c394-73b2-4a41-a611-3aef08aff979" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend (2).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ffbee025-0c22-48eb-9277-b9ada5e6b942" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend (2).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" afterDir="false" />
     </list>
@@ -25,26 +25,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2uKJXtjxqofldf6zyBgn1nBAKvI" />
+  <component name="ProjectId" id="2uU5SLmOw5daR4r3aaR2ArEfwQp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Utilisateur/PycharmProjects/monprojet",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8c99c394-73b2-4a41-a611-3aef08aff979" name="Changes" comment="" />
-      <created>1741991380419</created>
+      <changelist id="ffbee025-0c22-48eb-9277-b9ada5e6b942" name="Changes" comment="" />
+      <created>1742290314627</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1741991380419</updated>
+      <updated>1742290314627</updated>
     </task>
     <servers />
   </component>
