@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffbee025-0c22-48eb-9277-b9ada5e6b942" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mon-projet-medical.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend (2).zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlanningPage.js" afterDir="false" />
     </list>
