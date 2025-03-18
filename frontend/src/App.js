@@ -81,8 +81,8 @@ const App = () => {
             <Route path="/calendar" element={<CalendarPage openPatient={openPatient} />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/search" element={<SearchPage openPatient={openPatient} />} />  {/* ✅ Ajout du prop ici */}
-            <Route path="*" element={<HomePage openPatient={openPatient} />} />
             <Route path="/planning" element={<PlanningPage />} />  {/* ✅ Ajout du planning */}
+            <Route path="*" element={<HomePage openPatient={openPatient} />} />
           </Routes>
         )}
       </div>
